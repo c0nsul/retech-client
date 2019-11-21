@@ -14,10 +14,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
+import java.io.BufferedReader
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.io.OutputStreamWriter
 import java.net.HttpURLConnection
 import java.net.URL
 import kotlin.system.exitProcess
-import java.io.*
 
 
 class Main : AppCompatActivity() {
@@ -169,7 +172,6 @@ class Main : AppCompatActivity() {
                 }
 
 
-
             } catch (e: Exception) {
                 Debug.text = "Post error!"
                 e.printStackTrace()
@@ -179,8 +181,6 @@ class Main : AppCompatActivity() {
         }
     }
 //--------------------------------------------------------------------
-
-
 
 
     //---------------------------------------------------------------------------------
@@ -273,15 +273,12 @@ class Main : AppCompatActivity() {
 
             //check server response
             if (jsonData.length() > 0) {
-                //Debug.text = jsonData.toString()
 
                 if (jsonData.has("error")) {
                     status.text = "Credentalis error"
                 } else {
                     //go to setup
-
                     status.text = "Server online"
-
                 }
 
             } else {

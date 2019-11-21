@@ -1,1 +1,1 @@
-test interface and read JSON from Smart home server
+retech client for setuping main device
